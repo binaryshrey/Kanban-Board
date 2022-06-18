@@ -8,14 +8,11 @@ import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import InsertContent from '../components/InsertContent';
 
 
-
-
 const Appbar = () => {
 
   const [openNewContentDialog, setOpenNewContentDialog] = React.useState(false);
 
   const addNewContent = () => {
-    console.log('new')
     setOpenNewContentDialog(true)
   }
 

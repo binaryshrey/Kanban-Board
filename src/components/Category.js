@@ -1,11 +1,7 @@
-import { CssBaseline } from '@mui/material'
 import React from 'react'
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Content from './Content';
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
-
 
 const Category = ({name, count, contents}) => {
     return(
@@ -23,13 +19,11 @@ const Category = ({name, count, contents}) => {
                 </div>
                 {contents.map((item, index) => {
                     return(
-                        <Content key={index} title={item.title} description={item.description} created_on={item.created_on} tag={item.tag}/>
+                        <Content key={index} uid={item.id}  title={item.title} description={item.description} created_on={item.created_on} tag={item.tag}/>
                     )
                 })}
-               
             </Paper>
         </div>
-        
     )
 }
 

@@ -14,8 +14,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import data from '../containers/db'
 import uuid from 'react-uuid'
+import { connect } from 'react-redux'
+import { updateContents } from '../redux/actions';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -55,7 +56,9 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-const InsertContent = ({openDialog, setOpenDialog}) => {
+const InsertContent = ({openDialog, setOpenDialog,contents,updateContents}) => {
+
+  let data = contents.db
 
   const handleClose = () => {
     setOpenDialog(false);
@@ -65,8 +68,6 @@ const InsertContent = ({openDialog, setOpenDialog}) => {
   const [title, setTitle] = React.useState('');
   const [description, setDescription] = React.useState('');
   const [tag, setTag] = React.useState('');
-
-
 
   const handleTitleEntry = (event) => {
     setTitle(event.target.value);
@@ -84,19 +85,17 @@ const InsertContent = ({openDialog, setOpenDialog}) => {
   };
 
   const saveEntry = () => {
-    console.log(title, description, category, tag)
 
     let category_data_index = getCategoryDataIndex(category)
     data[category_data_index]['data'].unshift({
         'title'         : title,
         'description'   : description,
         'created_on'    : new Date().toLocaleDateString().replaceAll('/','-'),
-        'tag'           : tag
-            
+        'tag'           : tag,
+        'category'      : category,
+        'id'            : uuid()
     })
-
-    console.log(data)
-
+    updateContents(data)
     handleClose()
   }
 
@@ -109,7 +108,6 @@ const InsertContent = ({openDialog, setOpenDialog}) => {
     })
     return category_data_index
   }
-
 
   return (
     <div>
@@ -153,10 +151,8 @@ const InsertContent = ({openDialog, setOpenDialog}) => {
                 </FormControl>
             </form>    
             
-          
         </DialogContent>
         <DialogActions>
-        
           <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={saveEntry}>Save</Button>
         </DialogActions>
@@ -165,4 +161,12 @@ const InsertContent = ({openDialog, setOpenDialog}) => {
   );
 }
 
-export default InsertContent
+const mapStateToProps = (state) => ({
+    contents  : state.contents
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    updateContents  : (payload) => dispatch(updateContents(payload))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(InsertContent)
