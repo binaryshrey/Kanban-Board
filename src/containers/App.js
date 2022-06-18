@@ -1,8 +1,13 @@
-function App() {
+import Appbar from './Drawer/Appbar'
+import appTheme from './Theme/AppTheme';
+import { ThemeProvider } from '@mui/material/styles';
+
+const App = () =>  {
   return (
-    <div className="App">
-      
-    </div>
+    <ThemeProvider theme={appTheme}>
+      <Appbar/>
+    </ThemeProvider>
+    
   );
 }
 
