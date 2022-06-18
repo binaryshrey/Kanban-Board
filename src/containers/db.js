@@ -27,15 +27,15 @@ const data = [
         'name' : 'Monthly Accomplishments',
         'count' : 0,
         'data' : [
-            {
-                'title' : 'Monthly Accomplishments 01',
-                'description' : 'Description about Accomplishments 01',
-                'created_on'  : '2022-02-06',
-                'tag'         : 'Development',
-                'category'    : 'Monthly Accomplishments',
-                'id'          :  '201'
+            // {
+            //     'title' : 'Monthly Accomplishments 01',
+            //     'description' : 'Description about Accomplishments 01',
+            //     'created_on'  : '2022-02-06',
+            //     'tag'         : 'Development',
+            //     'category'    : 'Monthly Accomplishments',
+            //     'id'          :  '201'
                 
-            },
+            // },
             
         ]
     },
