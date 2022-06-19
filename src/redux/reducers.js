@@ -2,7 +2,7 @@ import {UPDATE_CONTENTS} from './types'
 import data from '../containers/db'
 
 const initialState = {
-    db : data
+    db : JSON.parse(localStorage.getItem("DBContents")) || data
 }
 
 const contentReducer = ( state = initialState, action) => {

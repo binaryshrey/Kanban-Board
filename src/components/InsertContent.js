@@ -96,6 +96,7 @@ const InsertContent = ({openDialog, setOpenDialog,contents,updateContents}) => {
         'id'            : uuid()
     })
     updateContents(data)
+    localStorage.setItem('DBContents', JSON.stringify(data));
     handleClose()
   }
 

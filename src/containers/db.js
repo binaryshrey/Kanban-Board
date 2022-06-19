@@ -1,31 +1,29 @@
 const data = [
     {
         'name' : 'To Do',
-        'count' : 0,
         'data' : [
-            {
-                'title' : 'Title 01',
-                'description' : 'Description about Title 01',
-                'created_on'  : '2022-06-06',
-                'tag'         : 'Personal Development',
-                'category'    : 'To Do',
-                'id'          :  '101'
-            },
-            {
-                'title' : 'Title 02',
-                'description' : 'Description about Title 02',
-                'created_on'  : '2022-06-10',
-                'tag'         : 'Personal Development',
-                'category'    : 'To Do',
-                'id'          :  '102'
-            },
+            // {
+            //     'title' : 'Title 01',
+            //     'description' : 'Description about Title 01',
+            //     'created_on'  : '2022-06-06',
+            //     'tag'         : 'Personal Development',
+            //     'category'    : 'To Do',
+            //     'id'          :  '101'
+            // },
+            // {
+            //     'title' : 'Title 02',
+            //     'description' : 'Description about Title 02',
+            //     'created_on'  : '2022-06-10',
+            //     'tag'         : 'Personal Development',
+            //     'category'    : 'To Do',
+            //     'id'          :  '102'
+            // },
             
 
         ]
     },
     {
         'name' : 'Monthly Accomplishments',
-        'count' : 0,
         'data' : [
             // {
             //     'title' : 'Monthly Accomplishments 01',
@@ -41,16 +39,15 @@ const data = [
     },
     {
         'name' : 'Awards',
-        'count' : 0,
         'data' : [
-            {
-                'title' : 'Awards 01',
-                'description' : 'Description about Awards 01',
-                'created_on'  : '2022-06-06',
-                'tag'         : 'Q1',
-                'category'    : 'Awards',
-                'id'          :  '301'
-            },
+            // {
+            //     'title' : 'Awards 01',
+            //     'description' : 'Description about Awards 01',
+            //     'created_on'  : '2022-06-06',
+            //     'tag'         : 'Q1',
+            //     'category'    : 'Awards',
+            //     'id'          :  '301'
+            // },
         ]
     },
 ]

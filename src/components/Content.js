@@ -14,6 +14,8 @@ const Content = ({title, description, created_on, tag, contents,updateContents, 
             item.data = item.data.filter(_item => _item.id != uid)
         })
         updateContents(raw_data)
+        localStorage.setItem('DBContents', JSON.stringify(raw_data));
+
     }
 
     return(
