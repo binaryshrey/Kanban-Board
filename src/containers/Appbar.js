@@ -10,8 +10,12 @@ import { connect } from 'react-redux'
 import * as XLSX from 'xlsx';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { updateColorMode } from '../redux/actions';
 
-const Appbar = ({contents}) => {
+
+const Appbar = ({contents, colorMode, updateColorMode}) => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -47,6 +51,18 @@ const Appbar = ({contents}) => {
     setOpenNewContentDialog(true)
   }
 
+  const updateMode = () => {
+    if(colorMode.darkMode){
+      updateColorMode(false)
+      localStorage.setItem('darkMode', JSON.stringify(false));
+
+    }
+    if(!colorMode.darkMode){
+      updateColorMode(true)
+      localStorage.setItem('darkMode', JSON.stringify(true));
+    }
+  }
+
   return (
     <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1}} >
         <Toolbar style={{ minHeight : '48px'}}>
@@ -80,6 +96,8 @@ const Appbar = ({contents}) => {
                     </Menu>
                   </div>
                   <AddCircleIcon fontSize='small' sx={{marginLeft:'8px'}} onClick={addNewContent}/>
+                  {colorMode.darkMode ? <Brightness4Icon fontSize='small' sx={{marginLeft:'8px'}} onClick={updateMode}/> :
+                                        <Brightness7Icon fontSize='small' sx={{marginLeft:'8px'}} onClick={updateMode}/>}
                   <AccountCircleIcon fontSize='small' sx={{marginLeft:'8px'}} />
                 </div>
             </div>
@@ -90,7 +108,12 @@ const Appbar = ({contents}) => {
 }
 
 const mapStateToProps = (state) => ({
-    contents  : state.contents
+    contents  : state.contents,
+    colorMode : state.colorMode
 })
 
-export default connect(mapStateToProps,null)(Appbar)
+const mapDispatchToProps = (dispatch) => ({
+    updateColorMode  : (payload) => dispatch(updateColorMode(payload))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Appbar)

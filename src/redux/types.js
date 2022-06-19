@@ -1,1 +1,2 @@
 export const UPDATE_CONTENTS = 'UPDATE_CONTENTS'
+export const DARK_MODE = 'DARK_MODE'

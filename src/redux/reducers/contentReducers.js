@@ -1,5 +1,5 @@
-import {UPDATE_CONTENTS} from './types'
-import data from '../containers/db'
+import {UPDATE_CONTENTS} from '../types'
+import data from '../../containers/db'
 
 const initialState = {
     db : JSON.parse(localStorage.getItem("DBContents")) || data
@@ -11,11 +11,10 @@ const contentReducer = ( state = initialState, action) => {
             return {
                 db : action.payload
             }
-        
         default:
             return state
-
     }
 }
 
 export default contentReducer
+
