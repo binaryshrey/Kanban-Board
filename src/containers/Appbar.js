@@ -64,7 +64,7 @@ const Appbar = ({contents, colorMode, updateColorMode}) => {
   }
 
   return (
-    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1}} >
+    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1}} style={{ background: colorMode.darkMode ? '' :'#374554' }}>
         <Toolbar style={{ minHeight : '48px'}}>
             <div style={{ width:'100%', display:'flex', justifyContent:'space-between'}}>
                 <Typography variant="h8" noWrap component="div">

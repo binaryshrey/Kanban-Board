@@ -6,14 +6,23 @@ import { connect } from 'react-redux'
 
 const App = ({colorMode}) =>  {
 
-  const appTheme = createTheme({
+  const darkTheme = createTheme({
     palette: {
-      mode: colorMode.darkMode ? 'dark' : 'light'
+      mode: 'dark'
+    },
+  });
+
+  const lightTheme = createTheme({
+    palette: {
+      mode: 'light',
+      background: {
+        default: "#F4F8FC"
+      },
     },
   });
 
   return (
-    <ThemeProvider theme={appTheme}>
+    <ThemeProvider theme={colorMode.darkMode ? darkTheme : lightTheme}>
       <Appbar/>
       <CategoryContainer/>
     </ThemeProvider>
